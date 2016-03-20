@@ -8,7 +8,9 @@ Homelayout = React.createClass({
             <div className="col-md-6">
               <FeatureList />
             </div>
-            <div className="col-md-5 col-md-offset-1">Sign up</div>
+            <div className="col-md-5 col-md-offset-1">
+              <Signupform />
+            </div>
           </div>
         </div>
       </div>
