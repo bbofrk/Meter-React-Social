@@ -8,13 +8,13 @@ Signupform = React.createClass({
   getInitialState() {
     return {
       message: '',
-      messageClass:''
+      messageClass: 'hidden'
     }
   },
   displayError(message) {
     this.setState({message: message, messageClass: 'alert alert-danger registerErro'})
   },
-  handleSubmit() {
+  handleSubmit(e) {
     e.preventDefault();
     this.setState({message: '', messageClass: 'hidden'});
     var that = this;
@@ -26,7 +26,7 @@ Signupform = React.createClass({
       email: email,
       password: password,
       profile: {
-        fullname: {first_name + last_name}.toLowerCase(),
+        fullname: (first_name + last_name).toLowerCase(),
         firstname: first_name,
         lastname: last_name,
         avatar: 'http://placehold.it/150x150',
@@ -34,11 +34,12 @@ Signupform = React.createClass({
       }
     };
     Accounts.createUser(user, function(e) {
-      FlowRouter.go('/dashboard');
       if (e) {
         that.displayError(e.reason);
+      } else {
+        FlowRouter.go('/dashboard');
       }
-    });
+    })
   },
   render() {
     return (
