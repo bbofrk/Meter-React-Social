@@ -4,7 +4,7 @@ Layout = React.createClass({
       <div className="wrapper">
         <div className="box">
           <div className="srow row-offcanvas row-offcanvas-left pushdown-50">
-            Navbar
+            <Navbar />
             {this.props.sidbar}
             {this.props.content}
           </div>
